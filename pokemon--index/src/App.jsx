@@ -1,3 +1,4 @@
+import PokemonApplication from "./PokemonApplication";
 import { useState } from "react";
 
 export default function App() {
@@ -7,7 +8,7 @@ export default function App() {
     <main>
       <h1>Pokémon Index</h1>
       {started ? (
-        <p>Poke app</p>
+        <PokemonApplication />
       ) : (
         <button onClick={() => setStarted(true)}>Start POKéDEX</button>
       )}
