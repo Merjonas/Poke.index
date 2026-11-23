@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Pokemon from "./Pokemon";
 
 const LIST_URL = "https://pokeapi.co/api/v2/pokemon?limit=151";
 
@@ -58,7 +59,7 @@ export default function PokemonApplication() {
       <button onClick={handleFetch}>Get Pokémon</button>
 
       {error && <p>{error}</p>}
-      {pokemonData && <p>Fetched: {pokemonData.name}</p>}
+      {pokemonData && <Pokemon data={pokemonData} />}
     </section>
   );
 }
