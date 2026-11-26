@@ -42,13 +42,15 @@ export default function PokemonApplication() {
     }
   }
 
-  if (loading) return <p>Loading Pokémon…</p>;
+if (loading) return <p className="status">Loading Pokémon…</p>;
 
-  return (
-    <section>
+return (
+  <section>
+    <div className="controls">
       <select
         value={selectedName}
         onChange={(e) => setSelectedName(e.target.value)}
+        aria-label="Choose a Pokémon"
       >
         {pokemonList.map((p) => (
           <option key={p.name} value={p.name}>
@@ -56,10 +58,13 @@ export default function PokemonApplication() {
           </option>
         ))}
       </select>
-      <button onClick={handleFetch}>Get Pokémon</button>
+      <button className="btn" onClick={handleFetch}>
+        Get Pokémon
+      </button>
+    </div>
 
-      {error && <p>{error}</p>}
-      {pokemonData && <Pokemon data={pokemonData} />}
-    </section>
-  );
+    {error && <p className="error">{error}</p>}
+    {pokemonData && <Pokemon data={pokemonData} />}
+  </section>
+);
 }
